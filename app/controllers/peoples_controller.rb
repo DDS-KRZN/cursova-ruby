@@ -1,6 +1,6 @@
 class PeoplesController < ApplicationController
   def index
-    @peoples = People.all
+    @people = People.all
   end
 
   def show
@@ -15,7 +15,7 @@ class PeoplesController < ApplicationController
     @people = People.new(people_params)
 
     if @people.save
-      redirect_to @people, notice: 'People was successfully created.'
+      redirect_to people_path(@people), notice: 'People was successfully created.'
     else
       render :new
     end
@@ -44,6 +44,6 @@ class PeoplesController < ApplicationController
   private
 
   def people_params
-    params.require(:people).permit(:name, :corp_email, :phone)
+    params.require(:people).permit(:name, :email, :phone)
   end
 end

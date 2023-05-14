@@ -1,0 +1,9 @@
+<h1>People</h1>
+
+<ul>
+  <% @people.each do |person| %>
+    <li><%= person.name %> (<%= person.email %>, <%= person.phone %>)</li>
+  <% end %>
+</ul>
+
+<%= link_to 'Створити людину', new_people_path %>
