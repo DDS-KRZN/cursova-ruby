@@ -74,7 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
   end
 
   add_foreign_key "departments", "companies"
-  add_foreign_key "departments", "directors"
+  add_foreign_key "departments", "people", column: "director_id"
   add_foreign_key "people_in_teams", "people", column: "people_id"
   add_foreign_key "people_in_teams", "teams"
   add_foreign_key "projects", "leaders"
