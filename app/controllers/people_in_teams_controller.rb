@@ -1,4 +1,4 @@
-class PeoplesInTeamsController < ApplicationController
+class PeopleInTeamsController < ApplicationController
    before_action :set_people_in_team, only: %i[ show edit update destroy ]
 
   # GET /people_in_teams or /people_in_teams.json
