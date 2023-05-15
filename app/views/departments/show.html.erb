@@ -1,0 +1,10 @@
+<h1>Про відділи</h1>
+
+<p><strong>Назва відділу :</strong> <%= @department.name%></p>
+<p><strong> :</strong> Назва компанії<%= @department.company.name%></p>
+<p><strong>Керівник :</strong> <%= @department.people.name %></p>
+
+<%= link_to 'Редагувати', edit_department_path(@department) %> |
+<%= link_to 'Повернутися ', department_path %>
+<br>
+<%= button_to 'Видалити', @department, method: :delete, data: { confirm: 'Ви вневнені?' } %>
