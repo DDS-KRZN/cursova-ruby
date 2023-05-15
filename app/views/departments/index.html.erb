@@ -14,12 +14,14 @@
     <tr>
       <td><%= department.name %></td>
       <td><%= department.company.name %></td>
-      <td><%= link_to 'Показати', company_department_path(department.company, department) %></td>
-      <td><%= link_to 'Редагувати', edit_company_department_path(department.company, department) %></td>
-      <td><%= link_to 'Видалити', company_department_path(department.company, department), method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+      <td><%= department.director.name %></td>
+      <td><%= link_to 'Show', company_department_path(department.company, department) %></td>
+      <td><%= link_to 'Edit', edit_company_department_path(department.company, department) %></td>
+      <td><%= link_to 'Destroy', company_department_path(department.company, department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
+
 </table>
 
 <br>

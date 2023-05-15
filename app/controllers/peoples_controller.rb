@@ -29,7 +29,7 @@ class PeoplesController < ApplicationController
     @people = People.find(params[:id])
 
     if @people.update(people_params)
-      redirect_to @people, notice: 'People was successfully updated.'
+      redirect_to people_url(@people), notice: 'People was successfully updated.'
     else
       render :edit
     end
