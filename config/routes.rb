@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :companies do
     resources :departments
   end
-  resources :peoples
+  resources :peoples, only: [:index, :show, :new, :edit, :update, :destroy]
   resources :companies do
     resources :departments do
       resources :teams
