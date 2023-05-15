@@ -1,2 +1,0 @@
-class PeoplesInTeamsController < ApplicationController
-end
