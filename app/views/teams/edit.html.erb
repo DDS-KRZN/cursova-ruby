@@ -1,0 +1,29 @@
+<h1>Editing team</h1>
+
+<%= render "form", team: @team %>
+
+<br>
+<%= form_for @team do |f| %>
+  <div class="field">
+    <p><%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="field">
+    <p><%= f.label :surname %>
+      <%= f.text_field :surname %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :department_id %>
+      <%= f.collection_select :department_id, Department.all, :id, :name %>
+    </p>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+<div>
+  <%= link_to "Show this team", @team %> |
+  <%= link_to "Back to teams", teams_path %>
+</div>

@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div>
+  <h1>Списки людей:</h1>
+
+<p><strong>Ім'я:</strong> <%= @people.name %></p>
+
+  <p><strong>Пошта :</strong> <%= @people.email %></p>
+
+  <p><strong>Телефон  :</strong> <%= @people.phone %></p>
+</div>
+
+  <div>
+  <%= link_to "Редагувати", edit_person_path(@people) %>
+<p></p>
+  <%= button_to "Видалити ", @people, method: :delete %>
+</div>

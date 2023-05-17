@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Projects</h1>
+
+<div id="projects">
+  <% @projects.each do |project| %>
+        <p>
+        <table>
+          <tbody>
+          <tr><th>Назва проекту : </th>
+            <td><%= project.name %> </td> </tr>
+
+          <tr><th>Опис : </th>
+            <td><%= project.descr %> </td> </tr>
+          <tr><th>Керівник : </th>
+            <td><%= project.people.name %> </td> </tr>
+          <tr><th>Срок : </th>
+            <td><%= project.deadline %> </td> </tr>
+          </tbody>
+        </table>
+        <p>
+      <%= link_to "Показати проект", project %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Створити новий проект", new_project_path %>
