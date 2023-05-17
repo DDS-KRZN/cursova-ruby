@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_17_111205) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -27,12 +27,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
     t.index ["director_id"], name: "index_departments_on_director_id"
   end
 
+  create_table "directors", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leaders", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "leader"
+    t.integer "director_id"
   end
 
   create_table "people_in_teams", force: :cascade do |t|
@@ -74,7 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
   end
 
   add_foreign_key "departments", "companies"
-  add_foreign_key "departments", "people", column: "director_id"
+  add_foreign_key "departments", "directors"
   add_foreign_key "people_in_teams", "people", column: "people_id"
   add_foreign_key "people_in_teams", "teams"
   add_foreign_key "projects", "leaders"
