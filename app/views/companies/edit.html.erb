@@ -1,19 +1,13 @@
-<h1>Edit Company</h1>
+<h1>Оновити інформацію</h1>
 
 <%= form_for @company do |f| %>
   <p>
-    <%= f.label :name ,"Назва компанії"%><br>
+    <%= f.label :name, "Назва" %><br>
     <%= f.text_field :name %>
   </p>
   <p>
-
+    <%= f.submit "Оновити"%>
   </p>
-  <%= render "form", company: @company %>
 <% end %>
+<%= link_to "Скасувати", company_path(@company), class: "btn" %>
 
-<br>
-
-<div>
-  <%= link_to "Показати зміни", @company %> |
-
-</div>

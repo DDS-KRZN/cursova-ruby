@@ -1,3 +1,3 @@
 class Project < ApplicationRecord
-  belongs_to :leader,class_name: 'Person'
+  belongs_to :leader
 end
