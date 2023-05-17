@@ -1,0 +1,23 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Проекти команди</h1>
+
+<p>
+<div id="team_project">
+  <% @team_projects.each do |f| %>
+<table>
+
+  <tbody>
+  <tr><th>Назва команди : </th>
+    <td><%= f.team.name %> </td> </tr>
+  <tr><th>Проект : </th>
+    <td><%= f.project.name %> </td> </tr>
+
+  </tbody>
+    </table>
+    <% end %>
+    </div>
+
+    <div>
+<%= link_to "Створити новий проект команди", new_team_project_path %>
+    </div>

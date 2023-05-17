@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Команди</h1>
+
+  <div id="teams">
+    <% @teams.each do |t| %>
+      <p>
+      <table>
+        <tbody>
+        <tr><th>Назва команди : </th>
+          <td><%= t.name %> </td> </tr>
+        <tr><th>Відділ : </th>
+          <td><%= t.department.name%> </td> </tr>
+        <tr><th>Директор : </th>
+          <td><%= t.person.name %> </td> </tr>
+
+        </tbody>
+      </table>
+      <p>
+        <%= link_to "Показати команду", t %>
+      </p>
+    <% end %>
+  </div>
+
+    </p>
+<div>
+<%= link_to "Створити команду", new_team_path %>
+</div>

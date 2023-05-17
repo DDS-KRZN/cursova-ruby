@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+
+
+<div>
+  <h1><%= @team.name %></h1>
+  <p><strong>Директор:</strong> <%= @team.person.name %></p>
+  <p><strong>Відділ:</strong> <%= @team.department.name %></p>
+
+  <%= link_to "Редагувати", edit_team_path(@team) %> |
+  <%= link_to "Повенутися до списку", teams_path %>
+  <%= button_to "Destroy this team", @team, method: :delete %>
+</div>

@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-   before_action :set_team, only: %i[ show edit update destroy ]
+  before_action :set_team, only: %i[ show edit update destroy ]
 
   # GET /teams or /teams.json
   def index
@@ -70,6 +70,3 @@ class TeamsController < ApplicationController
       params.require(:project).permit(:name,:department_id,:director_id)
     end
 end
-
-  
-

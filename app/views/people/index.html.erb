@@ -1,0 +1,11 @@
+<h1>People</h1>
+
+<ul>
+  <% @people.each do |person| %>
+    <li><%= person.id %>  <%= person.name %> (<%= person.email %>, <%= person.phone %>)</li>
+    <%= link_to "Редагувати", edit_person_path(person) %>
+    <%= button_to "Видалити ", person, method: :delete %>
+  <% end %>
+</ul>
+
+<%= link_to 'Створити людину', new_person_path,method: :get %>

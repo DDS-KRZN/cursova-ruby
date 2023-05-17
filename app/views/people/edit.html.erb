@@ -1,0 +1,29 @@
+<h1>Редагування</h1>
+
+<br>
+<%= form_for @people do |f| %>
+  <div class="field">
+    <p><%= f.label :name,"Ім'я"%>
+      <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="field">
+    <p><%= f.label :email,"Пошта" %>
+      <%= f.text_field :email %>
+    </p>
+  </div>
+  <div class="field">
+    <p><%= f.label :phone,"Телефон" %>
+      <%= f.text_field :phone %>
+    </p>
+  </div>
+  <%= render "form", patient_card: @people %>
+
+<% end %>
+
+<div>
+  <%= link_to "Показати зміни", @people %> |
+  <%= link_to "Повернутися", people_path %>
+  <%= button_to "Видалити ", @people, method: :delete %>
+
+</div>

@@ -1,5 +1,5 @@
 class PeopleInTeamsController < ApplicationController
-   before_action :set_people_in_team, only: %i[ show edit update destroy ]
+  before_action :set_people_in_team, only: %i[ show edit update destroy ]
 
   # GET /people_in_teams or /people_in_teams.json
   def index
@@ -27,7 +27,7 @@ class PeopleInTeamsController < ApplicationController
 
     respond_to do |format|
       if @people_in_team.save
-        format.html { redirect_to people_in_team_url(@people_in_team), notice: "People in team was successfully created." }
+        format.html { redirect_to people_in_team_url(@people_in_team), notice: "Person in team was successfully created." }
         format.json { render :show, status: :created, location: @people_in_team }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +40,7 @@ class PeopleInTeamsController < ApplicationController
   def update
     respond_to do |format|
       if @people_in_team.update(people_in_team_params)
-        format.html { redirect_to people_in_team_url(@people_in_team), notice: "People in team was successfully updated." }
+        format.html { redirect_to people_in_team_url(@people_in_team), notice: "Person in team was successfully updated." }
         format.json { render :show, status: :ok, location: @people_in_team }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,7 +54,7 @@ class PeopleInTeamsController < ApplicationController
     @people_in_team.destroy
 
     respond_to do |format|
-      format.html { redirect_to people_in_teams_url, notice: "People in team was successfully destroyed." }
+      format.html { redirect_to people_in_teams_url, notice: "Person in team was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -69,5 +69,4 @@ class PeopleInTeamsController < ApplicationController
     def people_in_team_params
       params.require(:people_in_team).permit(:team_id,:people_id)
     end
-  
 end
