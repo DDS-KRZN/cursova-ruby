@@ -12,7 +12,7 @@
   <% @companies.each do |company| %>
     <tr>
       <td><%= company.name %></td>
-      <p><td><%= link_to "Перейти на сторінку  компанії", company %></td></p>
+      <td><%= link_to 'Перейти', company %></td>
     </tr>
   <% end %>
   </tbody>

@@ -14,13 +14,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name,"Назва відділу" %><br>
+    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
 
   <div class="field">
-    <%= f.label :director_id %><br>
-    <%= f.collection_select :director_id, Person.all, :id, :name %>
+    <%= f.label :director %><br>
+    <%= f.collection_select :director_id, People.all, :id, :name %>
   </div>
 
   <div class="actions">

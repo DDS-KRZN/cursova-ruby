@@ -1,5 +1,6 @@
 class TeamProjectsController < ApplicationController
-  before_action :set_team_project, only: %i[ show edit update destroy ]
+  
+   before_action :set_team_project, only: %i[ show edit update destroy ]
 
   # GET /team_projects or /team_projects.json
   def index
