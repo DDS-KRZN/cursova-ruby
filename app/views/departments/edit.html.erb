@@ -1,0 +1,19 @@
+<h1>Редагувати відділ</h1>
+
+<%= form_with(model: [@company, @department]) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :director_id %>
+    <%= form.select :director_id, People.all.collect { |p| [p.name, p.id] } %>
+  </div>
+
+  <div>
+    <%= form.submit "Зберегти зміни" %>
+  </div>
+<% end %>
+
+<%= link_to 'Повернутися', company_department_path(@company, @department) %>

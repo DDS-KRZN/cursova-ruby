@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -66,11 +66,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "department_id", null: false
-    t.integer "director_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_teams_on_department_id"
-    t.index ["director_id"], name: "index_teams_on_director_id"
   end
 
   add_foreign_key "departments", "companies"
@@ -81,5 +79,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_225314) do
   add_foreign_key "team_projects", "projects"
   add_foreign_key "team_projects", "teams"
   add_foreign_key "teams", "departments"
-  add_foreign_key "teams", "directors"
 end

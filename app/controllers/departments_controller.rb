@@ -21,7 +21,24 @@ class DepartmentsController < ApplicationController
 
   def edit
     @company = Company.find(params[:company_id])
-    @department = @company.departments.find()
+    @department = @company.departments.find(params[:id])
+  end
+
+  def update
+    @company = Company.find(params[:company_id])
+    @department = @company.departments.find(params[:id])
+    if @department.update(department_params)
+      redirect_to company_department_path(@company, @department)
+    else
+      render :edit
+    end
+  end
+
+
+
+  def show
+    @company = Company.find(params[:company_id])
+    @department = @company.departments.find(params[:id])
   end
 
   private

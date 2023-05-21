@@ -1,0 +1,25 @@
+<h1>Teams</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Назва</th>
+    <th>Відділ</th>
+    <th>Дія</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @teams.each do |team| %>
+    <tr>
+      <td><%= team.name %></td>
+      <td><%= team.department.name %></td>
+      <td><%= link_to 'Edit Team', edit_company_department_team_path(@company, @department, team) %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<%= link_to 'New Team', new_company_department_team_path(@company, @department) %>
+

@@ -1,0 +1,15 @@
+<%= form_with(model: @people_in_team) do |form| %>
+  <div>
+    <%= form.label :people_id %>
+    <%= form.collection_select :people_id, People.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :team_id %>
+    <%= form.collection_select :team_id, Team.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Create People In Team" %>
+  </div>
+<% end %>

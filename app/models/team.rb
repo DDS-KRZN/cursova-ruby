@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
   belongs_to :department
-  belongs_to :director
+  has_many :people_in_teams
+  has_many :peoples, through: :people_in_teams
 end

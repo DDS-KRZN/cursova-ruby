@@ -66,8 +66,7 @@ class PeopleInTeamsController < ApplicationController
     end
 
     # Only allow a list of trusted parameters through.
-    def people_in_team_params
-      params.require(:people_in_team).permit(:team_id,:people_id)
-    end
-  
+   def people_in_team_params
+     params.require(:people_in_team).permit(:people_id, :team_id)
+   end
 end

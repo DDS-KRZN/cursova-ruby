@@ -1,0 +1,9 @@
+<%= form_for([@company, @department, @team]) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%#= f.label :director %>
+  <%#= f.collection_select :director_id, People.all, :id, :name %>
+
+  <%= f.submit "Create Team" %>
+<% end %>

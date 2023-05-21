@@ -1,0 +1,6 @@
+<%= form_for([@company, @department, @team]) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.submit "Update Team" %>
+<% end %>

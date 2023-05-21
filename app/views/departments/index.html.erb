@@ -18,6 +18,7 @@
       <td><%= link_to 'Show', company_department_path(department.company, department) %></td>
       <td><%= link_to 'Edit', edit_company_department_path(department.company, department) %></td>
       <td><%= link_to 'Destroy', company_department_path(department.company, department), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'View Teams', company_department_teams_path(department.company, department) %></td>
     </tr>
   <% end %>
   </tbody>

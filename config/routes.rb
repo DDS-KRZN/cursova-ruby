@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'home/index'
   root 'home#index'
+  post '/peoples', to: 'peoples#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
       resources :teams
     end
   end
-  resources :peoples_in_teams
+  resources :people_in_teams
   resources :projects
   resources :team_projects
 end
