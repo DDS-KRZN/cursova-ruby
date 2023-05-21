@@ -7,6 +7,6 @@
 
 <%= link_to 'Редагувати', edit_company_path(@company) %> |
 <%= link_to 'Відділи', company_departments_path(@company) %> |
-<%= link_to 'Повернутися', companies_path %>
+<%= link_to 'Повернутися до списку компаній', companies_path %>
 <br>
 <%= button_to 'Видалити', @company, method: :delete, data: { confirm: 'Are you sure?' } %>

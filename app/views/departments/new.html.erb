@@ -19,8 +19,8 @@
   </div>
 
   <div class="field">
-    <%= f.label :director %><br>
-    <%= f.collection_select :director_id, People.all, :id, :name %>
+    <%= f.label :director_id %><br>
+    <%= f.collection_select :director_id, Person.all, :id, :name %>
   </div>
 
   <div class="actions">

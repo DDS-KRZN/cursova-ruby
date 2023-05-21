@@ -1,0 +1,33 @@
+<h1>New project</h1>
+
+<br>
+<%= form_for @project do |f| %>
+  <div class="field">
+    <p><%= f.label :name ,"Назва проекту"%>
+      <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :descr,"Опис проекту" %>
+      <%= f.text_field :descr %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :leader_id,"Керівник" %>
+      <%= f.select :leader_id,options_for_select(Person.all.map{ |p| [p.name, p.id] }), {} %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :deadline ,"Срок"%>
+      <%= f.date_field :deadline%>
+    </p>
+  </div>
+
+  <%= f.submit %>
+<% end %>
+<div>
+  <%= link_to "Повернутися до проектів", projects_path %>
+</div>

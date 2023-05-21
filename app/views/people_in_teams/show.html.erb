@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<% @people_in_teams.each do |people_in_team| %>
+<div>
+  <h1>Спиcок :</h1>
+
+  <p><strong>Ім'я:</strong> <%= people_in_team.person.name %></p>
+
+  <p><strong>Команда :</strong> <%= people_in_team.team.name %></p>
+</div>
+
+  <div>
+  <%= link_to "Редагувати", edit_people_in_team_path(people_in_team) %> |
+<p></p>
+  <%= button_to "Видалити з команди", people_in_team, method: :delete %>
+</div>
+  <% end %>
+  <div>
+    <%= link_to "Повернутися до списків", people_in_teams_path %>
+    <%= link_to "Додати нового члена команди", new_people_in_team_path %>
+  </div>

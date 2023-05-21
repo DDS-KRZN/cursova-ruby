@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<% @team_projects.group_by{|tp| tp.team}.each do |team, team_projects| %>
+  <h3>Список проектів команди <%= team.name %>:</h3>
+  <% team_projects.each do |tp| %>
+    <table>
+      <tbody>
+
+        <th>Проект:</th>
+        <td><%= tp.project.name %></td>
+      </tr>
+      </tbody>
+    </table>
+    <%= link_to "Перейти на сторінку", tp %>
+  <% end %>
+<% end %>
+
+    <div>
+<%= link_to "Створити новий проект команди", new_team_project_path %>
+    </div>

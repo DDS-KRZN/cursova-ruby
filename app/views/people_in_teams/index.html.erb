@@ -1,27 +1,34 @@
-<h1>People in Teams</h1>
+<p style="color: green"><%= notice %></p>
 
-<table>
-  <thead>
-  <tr>
-    <th>Person</th>
-    <th>Team</th>
-    <th colspan="3"></th>
-  </tr>
-  </thead>
+<h1>Члени команди</h1>
 
-  <tbody>
-  <% @people_in_teams.each do |people_in_team| %>
-    <tr>
-      <td><%= people_in_team.people.name %></td>
-      <td><%= people_in_team.team.name %></td>
-      <td><%= link_to 'Show', people_in_team %></td>
-      <td><%= link_to 'Edit', edit_people_in_team_path(people_in_team) %></td>
-      <td><%= link_to 'Destroy', people_in_team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div id="people_in_teams">
 
-<br>
 
-<%= link_to 'New People In Team', new_people_in_team_path %>
+    <p>
+    <table>
+      <tbody>
+      <tr>
+        <th>Назва команди : </th>
+        <td><%= @people_in_teams.first.team.name %></td>
+      </tr>
+
+       <tr><th>Члени команди : </th>
+         <td>
+           <% @people_in_teams.map(&:person).uniq.each do |people_in_team| %>
+             <%= people_in_team.id %>  <%= people_in_team.name %><br>
+           <% end %>
+         </td>
+       </tr>
+      </tbody>
+    </table>
+
+
+      <%= link_to "Показати інформацію ",people_in_team_path(@people_in_teams.first) %>
+    </p>
+</div>
+
+<div>
+<%= link_to "Додати нового члена команди", new_people_in_team_path %>
+
+</div>
