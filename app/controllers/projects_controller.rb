@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @project = Project.all
+    @projects = Project.all
   end
 
   # GET /projects/1 or /projects/1.json
@@ -24,7 +24,8 @@ class ProjectsController < ApplicationController
   # POST /projects or /projects.json
   def create
     @project = Project.new(project_params)
-
+    @leader = Person.find_by(id: params[:project][:leader_id])
+    @project.person_id = params[:project][:leader_id]
     respond_to do |format|
       if @project.save
         format.html { redirect_to project_url(@project), notice: "Project was successfully created." }
@@ -60,13 +61,14 @@ class ProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = Project.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = Project.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def project_params
-      params.require(:project).permit(:name, :descr, :deadline,:leader_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def project_params
+    params.require(:project).permit(:name, :descr, :deadline,:leader_id)
+  end
+
 end

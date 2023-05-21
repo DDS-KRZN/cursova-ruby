@@ -1,0 +1,26 @@
+<h1>Працівники</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>ПІБ</th>
+    <th>Пошта</th>
+    <th>Телефон</th>
+    <th>Дії</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @people.each do |person| %>
+    <tr>
+      <td><%= person.id %></td>
+        <td><%= person.name %></td>
+      <td><%= person.email %></td>
+      <td><%= person.phone %></td>
+      <td><%= link_to 'Edit', edit_person_path(person) %></td>
+      <td><%= button_to 'Destroy', person, method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Новий Працівник', new_person_path %>

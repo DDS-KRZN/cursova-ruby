@@ -1,9 +1,27 @@
-<%= form_for([@company, @department, @team]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<h1>New team</h1>
+<br>
+<%= form_for @team do |f| %>
+<div class="field">
+  <p><%= f.label :name,"Назва команди" %>
+    <%= f.text_field :name %>
+  </p>
+</div>
+<div class="field">
+  <p>
+    <%= f.label :director_id ,"Директор"%>
+    <%= f.collection_select :director_id, Person.all, :id, :name %>
+  </p>
+</div>
+<div class="field">
+  <p>
+    <%= f.label :department_id,"Відділ" %>
+    <%= f.collection_select :department_id, Department.all, :id, :name %>
+  </p>
+</div>
+<%= f.submit %>
 
-  <%#= f.label :director %>
-  <%#= f.collection_select :director_id, People.all, :id, :name %>
 
-  <%= f.submit "Create Team" %>
+<div>
+  <%= link_to "Back to teams", teams_path %>
+</div>
 <% end %>

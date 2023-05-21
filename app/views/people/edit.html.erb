@@ -1,0 +1,35 @@
+<h1>Edit Person</h1>
+
+
+<%= form_for @person do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :phone %>
+    <%= form.telephone_field :phone %>
+  </div>
+
+  <%= form.submit "Оновити" %>
+  <td><%= button_to 'Destroy', person_path, method: :delete %></td>
+<% end %>
+
+<!--далі виводить текст помилки, якщо є-->
+<% if @person.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
+
+    <ul>
+      <% @person.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

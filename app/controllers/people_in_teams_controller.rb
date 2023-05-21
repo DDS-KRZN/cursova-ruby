@@ -1,5 +1,5 @@
 class PeopleInTeamsController < ApplicationController
-   before_action :set_people_in_team, only: %i[ show edit update destroy ]
+  before_action :set_people_in_team, only: %i[ show edit update destroy ]
 
   # GET /people_in_teams or /people_in_teams.json
   def index
@@ -8,7 +8,9 @@ class PeopleInTeamsController < ApplicationController
 
   # GET /people_in_teams/1 or /people_in_teams/1.json
   def show
-    @people_in_teams = PeopleInTeam.find(params[:id])
+    @people_in_team = PeopleInTeam.find(params[:id])
+    @people_in_teams = @people_in_team.team.people_in_teams
+
   end
 
   # GET /people_in_teams/new
@@ -27,7 +29,7 @@ class PeopleInTeamsController < ApplicationController
 
     respond_to do |format|
       if @people_in_team.save
-        format.html { redirect_to people_in_team_url(@people_in_team), notice: "People in team was successfully created." }
+        format.html { redirect_to people_in_team_url(@people_in_team), notice: "Person in team was successfully created." }
         format.json { render :show, status: :created, location: @people_in_team }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -40,7 +42,7 @@ class PeopleInTeamsController < ApplicationController
   def update
     respond_to do |format|
       if @people_in_team.update(people_in_team_params)
-        format.html { redirect_to people_in_team_url(@people_in_team), notice: "People in team was successfully updated." }
+        format.html { redirect_to people_in_team_url(@people_in_team), notice: "Person in team was successfully updated." }
         format.json { render :show, status: :ok, location: @people_in_team }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,19 +56,20 @@ class PeopleInTeamsController < ApplicationController
     @people_in_team.destroy
 
     respond_to do |format|
-      format.html { redirect_to people_in_teams_url, notice: "People in team was successfully destroyed." }
+      format.html { redirect_to people_in_teams_url, notice: "Person in team was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_people_in_team
-      @people_in_team = PeopleInTeam.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_people_in_team
+    @people_in_team = PeopleInTeam.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-   def people_in_team_params
-     params.require(:people_in_team).permit(:people_id, :team_id)
-   end
+  # Only allow a list of trusted parameters through.
+  def people_in_team_params
+    params.require(:people_in_team).permit(:team_id,:person_id)
+  end
+
 end

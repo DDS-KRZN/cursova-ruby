@@ -1,6 +1,5 @@
 class TeamProjectsController < ApplicationController
-  
-   before_action :set_team_project, only: %i[ show edit update destroy ]
+  before_action :set_team_project, only: %i[ show edit update destroy ]
 
   # GET /team_projects or /team_projects.json
   def index
@@ -24,6 +23,7 @@ class TeamProjectsController < ApplicationController
 
   # POST /team_projects or /team_projects.json
   def create
+    puts "Params: #{params.inspect}"
     @team_project = TeamProject.new(team_project_params)
 
     respond_to do |format|
@@ -61,13 +61,13 @@ class TeamProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_team_project
-      @team_project = TeamProject.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_team_project
+    @team_project = TeamProject.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def team_project_params
-      params.require(:project).permit(:team_id,:project_id)
-    end
+  # Only allow a list of trusted parameters through.
+  def team_project_params
+    params.require(:team_project).permit(:team_id,:project_id)
+  end
 end

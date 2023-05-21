@@ -1,6 +1,29 @@
-<%= form_for([@company, @department, @team]) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<h1>Editing team</h1>
 
-  <%= f.submit "Update Team" %>
+<br>
+<%= form_for @team do |f| %>
+  <div class="field">
+    <p><%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+      <%= f.label :department_id %>
+      <%= f.collection_select :department_id, Department.all, :id, :name %>
+    </p>
+  </div>
+  <div class="field">
+    <p>
+    <%= f.label :director_id ,"Директор"%>
+    <%= f.collection_select :director_id, Person.all, :id, :name %>
+    </p>
+  </div>
+
+
+  <%= f.submit %>
 <% end %>
+<div>
+  <%= link_to "Показати команду", @team %> |
+  <%= link_to "Повернутися до списку", teams_path %>
+</div>

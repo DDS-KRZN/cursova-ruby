@@ -1,0 +1,24 @@
+<h1>New Person</h1>
+
+
+
+  <%= form_with model: @person, url: people_path, local: true do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
+    </div>
+
+    <div>
+      <%= f.label :phone %>
+      <%= f.telephone_field :phone %>
+    </div>
+
+    <%= f.submit "Створити" %>
+
+  <% end %>
+
