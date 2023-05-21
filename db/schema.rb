@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_20_134225) do
   create_table "companies", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,8 +23,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
     t.integer "director_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "person_id", null: false
     t.index ["company_id"], name: "index_departments_on_company_id"
     t.index ["director_id"], name: "index_departments_on_director_id"
+    t.index ["person_id"], name: "index_departments_on_person_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -37,10 +39,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
 
   create_table "people_in_teams", force: :cascade do |t|
     t.integer "team_id", null: false
-    t.integer "people_id", null: false
+    t.integer "person_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["people_id"], name: "index_people_in_teams_on_people_id"
+    t.index ["person_id"], name: "index_people_in_teams_on_person_id"
     t.index ["team_id"], name: "index_people_in_teams_on_team_id"
   end
 
@@ -51,7 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
     t.date "deadline"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "person_id", null: false
     t.index ["leader_id"], name: "index_projects_on_leader_id"
+    t.index ["person_id"], name: "index_projects_on_person_id"
   end
 
   create_table "team_projects", force: :cascade do |t|
@@ -66,17 +70,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_20_230834) do
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.integer "department_id", null: false
+    t.integer "director_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "person_id", null: false
     t.index ["department_id"], name: "index_teams_on_department_id"
+    t.index ["director_id"], name: "index_teams_on_director_id"
+    t.index ["person_id"], name: "index_teams_on_person_id"
   end
 
   add_foreign_key "departments", "companies"
+  add_foreign_key "departments", "people"
   add_foreign_key "departments", "people", column: "director_id"
-  add_foreign_key "people_in_teams", "people", column: "people_id"
+  add_foreign_key "people_in_teams", "people"
   add_foreign_key "people_in_teams", "teams"
-  add_foreign_key "projects", "leaders"
+  add_foreign_key "projects", "people"
+  add_foreign_key "projects", "people", column: "leader_id"
   add_foreign_key "team_projects", "projects"
   add_foreign_key "team_projects", "teams"
   add_foreign_key "teams", "departments"
+  add_foreign_key "teams", "people"
+  add_foreign_key "teams", "people", column: "director_id"
 end
