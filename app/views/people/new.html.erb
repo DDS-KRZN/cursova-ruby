@@ -1,24 +1,28 @@
-<h1>New Person</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+<h1>Новий працівник</h1>
 
 
 
   <%= form_with model: @person, url: people_path, local: true do |f| %>
     <div>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label :name, "ПІБ" %><br>
+      <%= f.text_field :name, class: 'input-field' %>
     </div>
 
     <div>
-      <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.label :email %><br>
+      <%= f.email_field :email, class: 'input-field' %>
     </div>
 
     <div>
-      <%= f.label :phone %>
-      <%= f.telephone_field :phone %>
+      <%= f.label :phone %><br>
+      <%= f.telephone_field :phone, class: 'input-field' %>
     </div>
 
-    <%= f.submit "Створити" %>
+    <div><%= f.submit "Створити", class: 'btn' %></div>
 
   <% end %>
 
