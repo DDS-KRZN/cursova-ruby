@@ -1,8 +1,11 @@
-<h1><%= @person.name %></h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-<p><strong>Email:</strong> <%= @person.email %></p>
+<h1><%= @person.name %></h1>
+<div><p><strong>Email:</strong> <%= @person.email %></p>
 
 <p><strong>Phone:</strong> <%= @person.phone %></p>
 
-<%= link_to 'Edit', edit_person_path(@person) %> |
-<%= link_to 'Back', people_path %>
+<%= link_to 'Редагувати', edit_person_path(@person), class: 'btn' %> 
+<%= link_to 'Назад', people_path, class: 'btn' %></div>
