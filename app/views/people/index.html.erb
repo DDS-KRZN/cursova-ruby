@@ -1,12 +1,16 @@
 <h1>Працівники</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-<table>
+<div><table>
   <thead>
   <tr>
+    <th>№</th>
     <th>ПІБ</th>
     <th>Пошта</th>
     <th>Телефон</th>
-    <th>Дії</th>
+    <th colspan="2">Дії</th>
   </tr>
   </thead>
   <tbody>
@@ -16,11 +20,12 @@
         <td><%= person.name %></td>
       <td><%= person.email %></td>
       <td><%= person.phone %></td>
-      <td><%= link_to 'Edit', edit_person_path(person) %></td>
-      <td><%= button_to 'Destroy', person, method: :delete %></td>
+      <td><button><%= link_to 'Редагувати', edit_person_path(person) %></button></td>
+      <td><%= button_to 'Видалити', person, method: :delete %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Новий Працівник', new_person_path %>
+<button> <%= link_to 'Новий Працівник', new_person_path %> </button>
+</div>
