@@ -1,24 +1,27 @@
-<h1>Edit Person</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Редагування працівника</h1>
 
 
 <%= form_for @person do |form| %>
   <div>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'input-field' %>
   </div>
 
   <div>
     <%= form.label :email %>
-    <%= form.email_field :email %>
+    <%= form.email_field :email, class: 'input-field' %>
   </div>
 
   <div>
     <%= form.label :phone %>
-    <%= form.telephone_field :phone %>
+    <%= form.telephone_field :phone, class: 'input-field' %>
   </div>
-
-  <%= form.submit "Оновити" %>
-  <td><%= button_to 'Destroy', person_path, method: :delete %></td>
+<div><%= form.submit "Оновити", class: 'btn' %>
+  <td><%= button_to 'Видалити', person_path, method: :delete, class: 'btn' %></td></div>
+  
 <% end %>
 
 <!--далі виводить текст помилки, якщо є-->
