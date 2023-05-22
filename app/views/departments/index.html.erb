@@ -1,21 +1,14 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <h1>Відділи</h1>
-<style>
-th {
-text-align: center;
-padding: 10px 0;}
-td {
-    text-align: center;
-}
-
-</style>
-<table>
+<div><table>
   <thead>
   <tr>
     <th>Назва</th>
     <th>Компания</th>
     <th>Директор</th>
-    <th>Дії</th>
-    <th colspan="3"></th>
+    <th colspan="3">Дії</th>
   </tr>
   </thead>
 
@@ -25,8 +18,8 @@ td {
       <td><%= department.name %></td>
       <td><%= department.company.name %></td>
       <td><%= department.director.name %></td>
-      <td><%= link_to 'Show', company_department_path(department.company, department) %></td>
-      <td><%= link_to 'Edit', edit_company_department_path(department.company, department) %></td>
+      <td><%= link_to 'Show', company_department_path(department.company, department) , class: 'btn'%></td>
+      <td><%= link_to 'Edit', edit_company_department_path(department.company, department) , class: 'btn'%></td>
       <td><%= button_to 'Destroy', department_path(department), method: :delete, remote: true,data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
@@ -36,5 +29,9 @@ td {
 
 <br>
 
-<%= link_to 'Новий відділ', new_company_department_path(@company) %>
-<%= link_to 'Повернутися до компаній', companies_path %>
+<%= link_to 'Новий відділ', new_company_department_path(@company) , class: 'btn'%>
+<%= link_to 'Повернутися до компаній', companies_path, class: 'btn' %>
+</div>
+
+
+
