@@ -1,19 +1,22 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <h1>Редагувати відділ</h1>
-
+<div>
 <%= form_with(model: [@company, @department]) do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  
+    <%= form.label :name %><br>
+    <%= form.text_field :name, class: 'input-field'  %><br><br><br>
 
-  <div>
-    <%= form.label :director_id %>
-    <%= form.select :director_id, People.all.collect { |p| [p.name, p.id] } %>
-  </div>
 
-  <div>
-    <%= form.submit "Зберегти зміни" %>
-  </div>
+    <%= form.label :director_id %><br>
+    <%= form.select :director_id, People.all.collect { |p| [p.name, p.id] }, {}, { class: 'select-field' } %><br>
+<br>
+
+
+    <%= form.submit "Зберегти зміни", class: 'btn' %><br>
+
 <% end %>
 
-<%= link_to 'Повернутися', company_department_path(@company, @department) %>
+<%= link_to 'Повернутися', company_department_path(@company, @department), class: 'btn' %>
+ </div>
