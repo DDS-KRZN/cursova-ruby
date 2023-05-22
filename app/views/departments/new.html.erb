@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <h1>Створити відділ</h1>
 
 <%= form_for([@company, @department]) do |f| %>
@@ -14,18 +17,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.label :name%><br>
+    <%= f.text_field :name, class: 'input-field' %>
   </div>
 
   <div class="field">
     <%= f.label :director_id %><br>
-    <%= f.collection_select :director_id, Person.all, :id, :name %>
+    <%= f.collection_select :director_id, Person.all, :id, :name, {}, { class: 'select-field' } %>
+
+
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Додати відділ", class: 'btn'%>
+    <%= link_to 'Назад', company_departments_path(@company), class: 'btn' %>
   </div>
 <% end %>
 
-<%= link_to 'Назад', company_departments_path(@company) %>
