@@ -1,10 +1,13 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <h1>Про відділи</h1>
+<div><p><strong>Назва відділу: </strong><%= @department.name%></p>
+<p><strong> Назва компанії: </strong><%= @department.company.name%></p>
+<p><strong>Керівник: </strong> <%= @department.director.name %></p>
 
-<p><strong>Назва відділу :</strong><%= @department.name%></p>
-<p><strong> Назва компанії :</strong><%= @department.company.name%></p>
-<p><strong>Керівник :</strong> <%= @department.director.name %></p>
 
-
-<%= link_to 'Повернутися ', company_departments_path(@company) %>
+<%= link_to 'Повернутися ', company_departments_path(@company), class: 'btn' %>
+</div>
 
 
