@@ -1,4 +1,7 @@
-<h1>New team project</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Долучити команду до проекту</h1>
 
 <br>
 <div id="team_projects">
@@ -6,22 +9,21 @@
 
     <p>
     <div class="field">
-      <p><%= f.label :team_id,"Назва команди" %>
-        <%= f.collection_select :team_id, Team.all, :id, :name %>
+      <p><%= f.label :team_id,"Назва команди" %> <br>
+        <%= f.collection_select :team_id, Team.all, :id, :name, {}, class: 'select-field'  %>
       </p>
     </div>
     <div class="field">
       <p>
-        <%= f.label :project_id ,"Проект"%>
-        <%= f.collection_select :project_id, Project.all, :id, :name %>
+        <%= f.label :project_id ,"Проект"%><br>
+        <%= f.collection_select :project_id, Project.all, :id, :name, {}, class: 'select-field'  %>
       </p>
+       <%= f.submit "Створити", class: 'btn'%>
+       <%= link_to "Повернутися до списку проектів", team_projects_path , class: 'btn'%>
     </div>
 
-    <%= f.submit "Створити"%>
+   
 
     </p>
   <% end %>
-</div>
-<div>
-  <%= link_to "Повернутися до списку проектів", team_projects_path %>
 </div>
