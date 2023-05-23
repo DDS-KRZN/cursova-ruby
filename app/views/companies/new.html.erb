@@ -1,17 +1,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Нова компанія</h1>
+<div><%= form_for @company do |f| %>
+  <p>
+    <%= f.label :name, "Назва" %><br>
+    <%= f.text_field :name, class: 'input-field' %>
+  </p>
+ 
+    <%= f.submit "Створити компанію", class: 'btn' %>
 
-<h1>Про компанію</h1>
-
-<div>
-  <strong>Назва:  </strong>
-  <%= @company.name %>
-<br>
-
-<%= link_to 'Редагувати', edit_company_path(@company), class: 'btn' %> 
-<%= link_to 'Відділи', company_departments_path(@company), class: 'btn' %> 
-<%= link_to 'Повернутися до списку компаній', companies_path, class: 'btn' %>
-
-<%= button_to 'Видалити', @company, method: :delete, data: { confirm: 'Are you sure?', class: 'btn' } %>
+  <%= link_to 'Відмінити', companies_path, class: 'btn' %>
+<% end %>
 </div>
