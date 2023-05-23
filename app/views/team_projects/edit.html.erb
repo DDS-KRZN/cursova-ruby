@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <h1>Редагування проекта команди</h1>
 
 <br>
@@ -7,23 +10,24 @@
     <p>
     <div class="field">
       <p><%= f.label :team_id,"Назва команди" %>
-        <%= f.collection_select :team_id, Team.all, :id, :name %>
+        <%= f.collection_select :team_id, Team.all, :id, :name, {}, class: 'select-field' %>
       </p>
     </div>
     <div class="field">
       <p>
         <%= f.label :project_id ,"Проект"%>
-        <%= f.collection_select :project_id, Project.all, :id, :name %>
+        <%= f.collection_select :project_id, Project.all, :id, :name,  {}, class: 'select-field' %>
       </p>
     </div>
-
-    <%= f.submit %>
+<div><%= f.submit "Зберегти зміни", class: 'btn'%>
 
 
     </p>
   <% end %>
 </div>
 <div>
-  <%= link_to "Показати проект команди", team_project_path(@team_project) %> |
-  <%= link_to "Повернутися до списку", team_projects_path %>
+  <%= link_to "Показати проект команди", team_project_path(@team_project), class: 'btn' %> 
+  <%= link_to "Повернутися до списку", team_projects_path, class: 'btn' %>
 </div>
+</div>
+    
