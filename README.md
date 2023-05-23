@@ -1,24 +1,48 @@
-# README
+# Проект команди
+Ця робота розроблена в рамках курсової роботи.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Вимоги:
+* Ruby 3.1 або новіше
+* Rails 7.0 або новіше
 
-Things you may want to cover:
+## Встановлення
+Для встановлення проекту слідуйте наступним крокам:
 
-* Ruby version
+1. Клонуйте репозиторій з GitHub:
+```
+git clone https://github.com/DDS-KRZN/cursova-ruby.git
+```
 
-* System dependencies
+2. Перейдіть до папки проекту:
+```
+cd cursova-ruby
+```
 
-* Configuration
+3. Встановіть залежності:
+```
+bundle install
+```
 
-* Database creation
+4. Створіть базу даних і заповніть її даними:
+```
+rails db:create db:migrate db:seed
+```
 
-* Database initialization
+5. Запустіть сервер:
+```
+rails server
+```
 
-* How to run the test suite
+6. Відкрийте веб-додаток у браузері за адресою http://127.0.0.1:3000/.
 
-* Services (job queues, cache servers, search engines, etc.)
+## Функціонал
+Застосунок має наступний функціонал:
+* Створення, редагування і видалення компаній, відділів та команд, їх працівників та керівників.
+* Створення, редагування і видалення проектів.
+* Призначення учасників проекту з різних команд.
 
-* Deployment instructions
-
-* ...
+## Тестування
+Для тестування проекту використовуйте наступну команду:
+```
+rails test
+```
