@@ -1,14 +1,17 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <p style="color: green"><%= notice %></p>
 
 <h1>Команди</h1>
-<table>
+<div><table>
   <thead>
   <tr>
     <th>Назва</th>
     <th>Відділ</th>
     <th>Директор</th>
-    <th>Дії</th>
-    <th colspan="3"></th>
+    <th colspan="2">Дії</th>
+    
   </tr>
   </thead>
 
@@ -19,7 +22,9 @@
           <td><%= t.name %> </td>
           <td><%= t.department.name%> </td>
           <td><%= t.director.name %> </td>
-          <td><%= link_to 'Перейти на сторінку', team_path(t.id) %></td>
+          <td><%= link_to 'Члени команд', people_in_teams_path , class: 'btn'%></td>
+          <td><%= link_to 'Подивитись', team_path(t.id), class: 'btn' %></td>
+
 
         </tr>
       <% end %>
@@ -30,5 +35,7 @@
 
     </p>
 <div>
-<%= link_to "Створити команду", new_team_path %>
-</div>
+<%= link_to "Створити команду", new_team_path , class: 'btn'%>
+<%= link_to 'На головну', root_path, class: 'btn' %>
+
+</div></div>
