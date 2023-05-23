@@ -1,27 +1,31 @@
-<h1>New team</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Нова команда</h1>
 <br>
 <%= form_for @team do |f| %>
 <div class="field">
-  <p><%= f.label :name,"Назва команди" %>
-    <%= f.text_field :name %>
+  <p><%= f.label :name,"Назва команди" %><br>
+    <%= f.text_field :name, class: 'input-field' %>
   </p>
 </div>
 <div class="field">
   <p>
-    <%= f.label :director_id ,"Директор"%>
-    <%= f.collection_select :director_id, Person.all, :id, :name %>
+    <%= f.label :director_id ,"Директор"%><br>
+    <%= f.collection_select :director_id, Person.all, :id, :name, {}, class: 'select-field' %>
   </p>
 </div>
 <div class="field">
   <p>
-    <%= f.label :department_id,"Відділ" %>
-    <%= f.collection_select :department_id, Department.all, :id, :name %>
+    <%= f.label :department_id,"Відділ" %><br>
+    <%= f.collection_select :department_id, Department.all, :id, :name, {}, class: 'select-field' %>
   </p>
 </div>
-<%= f.submit %>
-
-
-<div>
-  <%= link_to "Back to teams", teams_path %>
+<div><%= f.submit "Зберегти", class: 'btn' %>
+  <%= link_to "Повернутися", teams_path, class: 'btn' %>
 </div>
+
+
+
+
 <% end %>
