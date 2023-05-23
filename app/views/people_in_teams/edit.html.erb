@@ -6,21 +6,21 @@
 <br>
 <%= form_for @people_in_team do |f| %>
   <div class="field">
-    <p><%= f.label :team_id,"Назва команди "%>
-      <%= f.collection_select :team_id, Team.all, :id, :name %>
+    <p><%= f.label :team_id,"Назва команди "%><br>
+      <%= f.collection_select :team_id, Team.all, :id, :name, {}, { class: 'select-field' } %>
     </p>
   </div>
   <div class="field">
-    <p><%= f.label :people_id,"Члени команди" %>
-      <%= f.collection_select :person_id, Person.all, :id, :name %>
+    <p><%= f.label :people_id,"Члени команди" %><br>
+      <%= f.collection_select :person_id, Person.all, :id, :name, {}, { class: 'select-field' } %>
     </p>
   </div>
 
-  <%= render "form", people_in_team: @people_in_team %>
+  <%= render "form", people_in_team: @people_in_team, class: 'btn' %>
 
 <% end %>
 
 <div>
-  <%= link_to "Показати зміни", @people_in_team %> |
-  <%= link_to "Повернутися", people_in_teams_path %>
+  <%= link_to "Показати зміни", @people_in_team, class: 'btn' %> 
+  <%= link_to "Повернутися", people_in_teams_path, class: 'btn' %>
 </div>
