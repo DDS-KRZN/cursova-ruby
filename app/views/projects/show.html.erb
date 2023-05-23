@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <p style="color: green"><%= notice %></p>
 
 
@@ -8,8 +11,8 @@
   <p><strong>Керівник:</strong> <%= @project.leader.name %></p>
   <p><strong>Срок:</strong> <%= @project.deadline %></p>
 
-  <%= link_to "Редагувати", edit_project_path(@project) %> |
-  <%= link_to "Повернутися до списку", projects_path %>
+  <%= link_to "Редагувати", edit_project_path(@project) , class: 'btn'%> 
+  <%= link_to "Повернутися до списку", projects_path, class: 'btn' %>
 
-  <%= button_to "Видалити", @project, method: :delete %>
+  <%= button_to "Видалити", @project, method: :delete, class: 'btn' %>
 </div>
