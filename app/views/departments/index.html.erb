@@ -18,9 +18,9 @@
       <td><%= department.name %></td>
       <td><%= department.company.name %></td>
       <td><%= department.director.name %></td>
-      <td><%= link_to 'Show', company_department_path(department.company, department) , class: 'btn'%></td>
-      <td><%= link_to 'Edit', edit_company_department_path(department.company, department) , class: 'btn'%></td>
-      <td><%= button_to 'Destroy', department_path(department), method: :delete, remote: true,data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Показати', company_department_path(department.company, department) , class: 'btn'%></td>
+      <td><%= link_to 'Редагувати', edit_company_department_path(department.company, department) , class: 'btn'%></td>
+      <td><%= button_to 'Видалити', department_path(department), method: :delete, remote: true,data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
   </tbody>
