@@ -1,33 +1,36 @@
-<h1>New project</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Створити проект</h1>
 
 <br>
 <%= form_for @project do |f| %>
   <div class="field">
-    <p><%= f.label :name ,"Назва проекту"%>
-      <%= f.text_field :name %>
+    <p><%= f.label :name ,"Назва проекту"%><br>
+      <%= f.text_field :name, class: 'input-field' %>
     </p>
   </div>
   <div class="field">
     <p>
-      <%= f.label :descr,"Опис проекту" %>
-      <%= f.text_field :descr %>
+      <%= f.label :descr,"Опис проекту" %><br>
+      <%= f.text_field :descr, class: 'input-field' %>
     </p>
   </div>
   <div class="field">
     <p>
-      <%= f.label :leader_id,"Керівник" %>
-      <%= f.select :leader_id,options_for_select(Person.all.map{ |p| [p.name, p.id] }), {} %>
+      <%= f.label :leader_id,"Керівник" %><br>
+      <%= f.select :leader_id, options_for_select(Person.all.map{ |p| [p.name, p.id] }), {}, class: 'select-field' %>
+
     </p>
   </div>
   <div class="field">
     <p>
-      <%= f.label :deadline ,"Срок"%>
+      <%= f.label :deadline ,"Срок"%><br>
       <%= f.date_field :deadline%>
     </p>
   </div>
-
-  <%= f.submit %>
-<% end %>
-<div>
-  <%= link_to "Повернутися до проектів", projects_path %>
+<div><%= f.submit "Зберегти", class: 'btn' %>
+  <%= link_to "Повернутися до проектів", projects_path, class: 'btn' %>
 </div>
+  
+<% end %>
