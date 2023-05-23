@@ -1,22 +1,24 @@
-<h1>Editing project</h1>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+<h1>Редагувати проект</h1>
 
 
-<br>
 <%= form_for @project do |f| %>
   <div class="field">
-    <p><%= f.label :name %>
-      <%= f.text_field :name %>
+    <p><%= f.label :name,"Назва проекту" %>
+      <%= f.text_field :name, class: 'input-field' %>
     </p>
   </div>
   <div class="field">
-    <p><%= f.label :descr %>
-      <%= f.text_field :descr %>
+    <p><%= f.label :descr,"Опис проекту" %>
+      <%= f.text_field :descr, class: 'input-field' %>
     </p>
   </div>
   <div class="field">
     <p>
       <%= f.label :leader_id,"Керівник" %>
-      <%= f.select :leader_id, options_for_select(Person.all.map{ |u| [u.name, u.id] })%>
+      <%= f.select :leader_id, options_for_select(Person.all.map{ |u| [u.name, u.id] }) , {}, class: 'select-field'%>
     </p>
   </div>
   <div class="field">
@@ -26,10 +28,11 @@
     </p>
   </div>
 
-  <%= f.submit %>
-<% end %>
+  
+
 
 <div>
-  <%= link_to "Показати зміни", @project %> |
-  <%= link_to "Повернутися до списку", projects_path %>
+  <%= f.submit "Зберегти зміни", class: 'btn' %>
+  <%= link_to "Повернутися до списку", projects_path, class: 'btn' %>
 </div>
+<% end %>
