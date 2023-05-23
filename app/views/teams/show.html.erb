@@ -1,3 +1,6 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 <p style="color: green"><%= notice %></p>
 
 <div>
@@ -5,7 +8,7 @@
   <p><strong>Директор:</strong> <%= @team.director.name %></p>
   <p><strong>Відділ:</strong> <%= @team.department.name %></p>
 
-  <%= link_to "Редагувати", edit_team_path(@team) %> |
-  <%= link_to "Повенутися до списку", teams_path %>
-  <%= button_to "Видалити", @team, method: :delete %>
+  <%= link_to "Редагувати", edit_team_path(@team), class: 'btn' %> 
+  <%= link_to "Повенутися до списку", teams_path , class: 'btn'%>
+  <%= button_to "Видалити", @team, method: :delete , class: 'btn' %>
 </div>
